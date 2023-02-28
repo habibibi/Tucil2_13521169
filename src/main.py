@@ -5,6 +5,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 import platform
 
+print("=========================")
+print("\"Closest Pair Finder\"")
+print("Program untuk mencari pasangan titik terdekat dari sebuah himpunan titik")
+print("Oleh : Muhammad Habibi Husni")
+print("=========================")
 print("Pilihan metode membangkitkan titik")
 print("1. Random")
 print("2. Membaca file")
@@ -36,25 +41,31 @@ print()
 
 
 print("Processor name : ", platform.processor())
+print("Solusi bruteforce : ")
 st = time.time()
-dist = A.bruteShortestPair()
+dist, pA, pB = A.bruteShortestPair()
 end = time.time()
-print("Hasil bruteforce = ", dist)
+print("jarak terdekat = ", dist)
+print("Titik 1 = ", pA)
+print("Titik 2 = ", pB)
 print("Banyak eucDist dipanggil = ", Point.eucDistCnt)
 print("Runtime = ", end-st)
 print()
 
 Point.resetEucDistCnt()
+print("Solusi divide and conquer : ")
 st = time.time()
 dist, pA, pB = A.dncShortestPair()
 end = time.time()
-print("Hasil DnC = ", dist)
+print("Jarak terdekat = ", dist)
+print("Titik 1 = ", pA)
+print("Titik 2 = ", pB)
 print("Banyak eucDist dipanggil = ", Point.eucDistCnt)
 print("Runtime = ", end-st)
 print()
 
-if (A.getD() == 3):
-    pil = input("Apakah Anda ingin melihat visualisasi titik? (y/n)\n")
+if (A.getD() <= 3):
+    pil = input("Apakah Anda ingin melihat visualisasi titik? (y/n) : ")
     if (pil == 'y'):
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
@@ -73,5 +84,6 @@ if (A.getD() == 3):
         z = np.linspace(pA.getXi(2),pB.getXi(2))
         plt.plot(x,y,z,c='red')
         plt.show()
-
+else:
+    print("Dimensi >= 3, tidak ada visualisasi")
 print("Program selesai...")

@@ -5,6 +5,7 @@ class Point:
     LIMIT = 1e5
     eucDistCnt = 0
     def __init__(self, dim = 3, arr = None):
+        # constuctor berupa init(dim) atau init(arr)
         self.__r = []
         if (arr is not None):
             self.__d = len(arr)
@@ -13,7 +14,7 @@ class Point:
         else:
             self.__d = dim
             for i in range(dim):
-                self.__r.append(random.randint(-Point.LIMIT,Point.LIMIT))
+                self.__r.append(random.uniform(-Point.LIMIT,Point.LIMIT))
 
 
     def getDim(self):
@@ -29,6 +30,7 @@ class Point:
         return self.__r
 
     def eucDist(self,p):
+        # menghitung jarak euclidean dengan titik p
         ans = 0
         for i in range(min(self.__d,p.__d)):
             ans += (self.__r[i]-p.__r[i])**2
@@ -37,13 +39,14 @@ class Point:
 
     @staticmethod
     def resetEucDistCnt():
+        # mereset perhitungan pemanggilan eucDist
         Point.eucDistCnt = 0
 
     def __str__(self):
         l = []
         for i in range(self.__d):
-            l.append(str(self.__r[i]))
-        return '['+','.join(l)+']'
+            l.append("{:.2f}".format(self.__r[i]))
+        return '['+', '.join(l)+']'
     
     def __repr__(self):
         return str(self)
