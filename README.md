@@ -4,7 +4,7 @@
 - Muhammad Habibi Husi (13521169)
 ## Deskripsi Program (Closest Pair Finder)
 Program ini berfungsi untuk mencari sepasang titik terdekat dari sekumpulan titik pada ruang vektor $R^n$ dengan menggunakan algoritma
-divide and conquer. Pada program ini, juga disediakan algoritma pencarian dengan menggunakan algoritma bruteforce agar dapat membandingkan keefisienan solusi divide and conquer yang telah diimplementasi. Algoritma divide and conquer pada program ini memiliki kompleksitas $O(n \: log \:  n)$ dengan worst-case scenario $O(n^2)$.
+divide and conquer. Pada program ini, juga disediakan algoritma pencarian dengan menggunakan algoritma bruteforce agar dapat membandingkan keefisienan solusi divide and conquer yang telah diimplementasi. Algoritma divide and conquer pada program ini memiliki kompleksitas $O(n log n)$ dengan worst-case scenario $O(n^2)$.
 ## Requirement
 - python 3
 - pyinstaller (if want to build .exe)
