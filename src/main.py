@@ -3,7 +3,7 @@ from Point import *
 import time
 import matplotlib.pyplot as plt
 import numpy as np
-import os
+import platform
 
 print("Pilihan metode membangkitkan titik")
 print("1. Random")
@@ -34,8 +34,10 @@ while (True):
     print("Masukan tidak valid!")
 print()
 
+
+print("Processor name : ", platform.processor())
 st = time.time()
-dist = A.bruteClosestPair()
+dist = A.bruteShortestPair()
 end = time.time()
 print("Hasil bruteforce = ", dist)
 print("Banyak eucDist dipanggil = ", Point.eucDistCnt)
@@ -44,7 +46,7 @@ print()
 
 Point.resetEucDistCnt()
 st = time.time()
-dist, pA, pB = A.dncClosestPair()
+dist, pA, pB = A.dncShortestPair()
 end = time.time()
 print("Hasil DnC = ", dist)
 print("Banyak eucDist dipanggil = ", Point.eucDistCnt)

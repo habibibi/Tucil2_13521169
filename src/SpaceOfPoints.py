@@ -49,12 +49,12 @@ class SpaceOfPoints:
                 fPoints.append(self.__points[i])
         return SpaceOfPoints(self.__d, points = fPoints)
 
-    def dncClosestPair(self):
+    def dncShortestPair(self):
         sortedPoint = self.__points.copy()
         PointSorter.sort(sortedPoint,0)
-        return SpaceOfPoints(self.__d,points=sortedPoint).__dncClosestPairRec()
+        return SpaceOfPoints(self.__d,points=sortedPoint).__dncShortestPairRec()
 
-    def __dncClosestPairRec(self):
+    def __dncShortestPairRec(self):
         if (self.__n == 1) :
             return SpaceOfPoints.INF, None, None
         elif (self.__n == 2):
@@ -63,8 +63,8 @@ class SpaceOfPoints:
             mid = (self.__n-1)//2
             qL = self.getFilteredPointsByIdx(0,mid,0)
             qR = self.getFilteredPointsByIdx(mid+1,self.__n-1,0)
-            dL, pLA, pLB = qL.__dncClosestPairRec()
-            dR, pRA, pRB = qR.__dncClosestPairRec()
+            dL, pLA, pLB = qL.__dncShortestPairRec()
+            dR, pRA, pRB = qR.__dncShortestPairRec()
             if (dL < dR):
                 pA = pLA
                 pB = pLB
@@ -103,7 +103,7 @@ class SpaceOfPoints:
                     j += 1
             return minDist, pA, pB
             
-    def bruteClosestPair(self):
+    def bruteShortestPair(self):
         minDist = SpaceOfPoints.INF
         for i in range(self.__n-1):
             for j in range(i+1,self.__n):
